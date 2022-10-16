@@ -3,11 +3,11 @@ from django.utils.crypto import get_random_string
 
 
 def generate_id_length():
-    return get_random_string(length=5)
+    return get_random_string(length=5).upper()
 
 
 class Room(models.Model):
-    id = models.CharField(primary_key=True, max_length=5, default=generate_id_length().upper())
+    id = models.CharField(primary_key=True, max_length=5, default=generate_id_length)
 
 
 class User(models.Model):
