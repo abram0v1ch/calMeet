@@ -2,8 +2,12 @@ from django.db import models
 from django.utils.crypto import get_random_string
 
 
+def generate_id_length():
+    return get_random_string(length=5)
+
+
 class Room(models.Model):
-    id = models.CharField(primary_key=True, max_length=5, default=(get_random_string(length=5)).upper())
+    id = models.CharField(primary_key=True, max_length=5, default=generate_id_length().upper())
 
 
 class User(models.Model):
